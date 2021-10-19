@@ -7,11 +7,14 @@ from client.page_objects.base_page import BasePage
 
 class LoginPage(BasePage):
 
-    LOGIN = (By.CSS_SELECTOR, "section[class='login-page has-animation'] input[id='userEmail']")
-    PASSWORD = (By.XPATH, "(//input[@id='userPass'])[1]")
-    LOGIN_BUTTON = (By.CSS_SELECTOR, "section[class='login-page has-animation'] input[id='userEmail']")
+    EMAIL_FIELD = (By.XPATH, "//input[@id='email']")
+    PASSWORD_FIELD = (By.XPATH, "//input[@id='passwd']")
+    SIGN_IN_BUTTON = (By.XPATH, "//button[@id='SubmitLogin']")
+    FORGOT_YOUR_PASSWORD_BUTTON = (By.XPATH, "//a[contains(text(),'Forgot your password?')]")
+    EMAIL_CREATE_FIELD = (By.XPATH, "//input[@id='email_create']")
+    CREATE_BUTTON = (By.XPATH, "//button[@id='SubmitCreate']")
 
-    IS_PAGE_OPENED_LOCATORS = [LOGIN, PASSWORD, LOGIN_BUTTON]
+    IS_PAGE_OPENED_LOCATORS = []
 
     def fill_login_field(self, username):
         self._find_element(self.LOGIN).click()
@@ -22,5 +25,8 @@ class LoginPage(BasePage):
         self._find_element(self.PASSWORD).send_keys(password)
 
     def click_login_button(self):
-        time.sleep(10)
         self._find_element(self.LOGIN_BUTTON).click()
+
+    def fill_create_email_field(self, email):
+        self._find_element(self.EMAIL_CREATE_FIELD).click()
+        self._find_element(self.EMAIL_CREATE_FIELD).send_keys(email)

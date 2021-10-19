@@ -8,4 +8,4 @@ class BasePage(PageObject):
 
     driver = Driver.get_instance()
 
-    action = ActionChains(driver)
+    action_chain = ActionChains(driver)
