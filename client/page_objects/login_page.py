@@ -31,5 +31,5 @@ class LoginPage(BasePage):
         self._find_element(self.EMAIL_CREATE_FIELD).click()
         self._find_element(self.EMAIL_CREATE_FIELD).send_keys(email)
 
-    def click_create_an_account(self):  ##############
+    def click_create_an_account(self):
         self._find_element(self.CREATE_BUTTON).click()

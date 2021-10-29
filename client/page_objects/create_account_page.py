@@ -1,7 +1,7 @@
 
 from selenium.webdriver.common.by import By
 from client.page_objects.base_page import BasePage
-from selenium.webdriver.common.action_chains import ActionChains
+
 
 class CreateAccountPage(BasePage):
 
@@ -13,25 +13,18 @@ class CreateAccountPage(BasePage):
     PASSWORD = (By.XPATH, "//input[@id='passwd']")
     DATE_OF_BIRTH_DAY = (By.XPATH, "//div[@id='uniform-days']")
     DATE_OF_BIRTH_DAY_DAY = (By.XPATH, "//select[@id='days']//option[@value='3']")
-
     DATE_OF_BIRTH_MONTH = (By.XPATH, "//div[@id='uniform-months']")
     DATE_OF_BIRTH_MONTH_MONTH = (By.XPATH, "//select[@id='months']//option[@value='1']")
-
     DATE_OF_BIRTH_DAY_YEAR = (By.XPATH, "//div[@id='uniform-years']")
     DATE_OF_BIRTH_DAY_YEAR_YEAR = (By.XPATH, "//select[@id='years']//option[@value='2000']")
-
     FIRST_NAME = (By.XPATH, "//input[@id='firstname']")
     LAST_NAME = (By.XPATH, "//input[@id='lastname']")
     COMPANY = (By.XPATH, "//input[@id='company']")
     ADDRESS = (By.XPATH, "//input[@id='address1']")
     ADDRESS_SECOND_LINE = (By.XPATH, "//input[@id='address2']")
     CITY = (By.XPATH, "//input[@id='city']")
-
     STATE = (By.XPATH, "//div[@id='uniform-id_state']")
     STATE_NAME = (By.XPATH, "//div[@id='uniform-id_state']//option[contains(text(),'Alabama')]")
-    #STATE_NAME = (By.XPATH, "//body/div[@id='page']/div[2]/div[1]/div[3]/div[1]/form[1]/div[1]/div[6]/div[1]/div[1]/div[1]/select[1]/option[5]")
-
-
     POSTAL_CODE = (By.XPATH, "//input[@id='postcode']")
     COUNTRY = (By.XPATH, "//div[@id='uniform-id_country']")
     COUNTRY_NAME = (By.XPATH, "//div[@id='uniform-id_country']//option[contains(text(),'United States')]")
@@ -48,21 +41,21 @@ class CreateAccountPage(BasePage):
     def click_gender_male_mr(self):
         self._find_element(self.GENDER_MALE_MR).click()
 
-    def fill_customer_first_name(self):
+    def fill_customer_first_name(self, customer_first_name):
         self._find_element(self.CUSTOMER_FIRST_NAME).click()
-        self._find_element(self.CUSTOMER_FIRST_NAME).send_keys('customer')
+        self._find_element(self.CUSTOMER_FIRST_NAME).send_keys(customer_first_name)
 
-    def fill_customer_last_name(self):
+    def fill_customer_last_name(self, customer_last_name):
         self._find_element(self.CUSTOMER_LAST_NAME).click()
-        self._find_element(self.CUSTOMER_LAST_NAME).send_keys('customers')
+        self._find_element(self.CUSTOMER_LAST_NAME).send_keys(customer_last_name)
 
     def fill_email(self):
         self._find_element(self.EMAIL).click()
         self._find_element(self.EMAIL).send_keys()
 
-    def fill_password(self):
+    def fill_password(self, password):
         self._find_element(self.PASSWORD).click()
-        self._find_element(self.PASSWORD).send_keys('password')
+        self._find_element(self.PASSWORD).send_keys(password)
 
     def select_date_of_birth_day(self):
         self._find_element(self.DATE_OF_BIRTH_DAY).click()
@@ -82,29 +75,29 @@ class CreateAccountPage(BasePage):
     def fill_date_of_birth_year(self):
         self._find_element(self.DATE_OF_BIRTH_DAY_YEAR_YEAR).click()
 
-    def fill_address_first_name(self):
+    def fill_address_first_name(self, address_first_name):
         self._find_element(self.FIRST_NAME).click()
-        self._find_element(self.FIRST_NAME).send_keys('First')
+        self._find_element(self.FIRST_NAME).send_keys(address_first_name)
 
-    def fill_address_last_name(self):
+    def fill_address_last_name(self, address_last_name):
         self._find_element(self.LAST_NAME).click()
-        self._find_element(self.LAST_NAME).send_keys('Last')
+        self._find_element(self.LAST_NAME).send_keys(address_last_name)
 
-    def fill_company(self):
+    def fill_company(self, company):
         self._find_element(self.COMPANY).click()
-        self._find_element(self.COMPANY).send_keys('fill_company')
+        self._find_element(self.COMPANY).send_keys(company)
 
-    def fill_address(self):
+    def fill_address(self, address):
         self._find_element(self.ADDRESS).click()
-        self._find_element(self.ADDRESS).send_keys('Address1')
+        self._find_element(self.ADDRESS).send_keys(address)
 
-    def fill_address_second_line(self):
+    def fill_address_second_line(self, address_second_line):
         self._find_element(self.ADDRESS_SECOND_LINE).click()
-        self._find_element(self.ADDRESS_SECOND_LINE).send_keys('Address2')
+        self._find_element(self.ADDRESS_SECOND_LINE).send_keys(address_second_line)
 
-    def fill_city(self):
+    def fill_city(self, city):
         self._find_element(self.CITY).click()
-        self._find_element(self.CITY).send_keys('City')
+        self._find_element(self.CITY).send_keys(city)
 
     def select_state(self):
         self._find_element(self.STATE).click()
@@ -112,9 +105,9 @@ class CreateAccountPage(BasePage):
     def fill_state(self):
         self._find_element(self.STATE_NAME).click()
 
-    def fill_postal_code(self):
+    def fill_postal_code(self, postal_code):
         self._find_element(self.POSTAL_CODE).click()
-        self._find_element(self.POSTAL_CODE).send_keys('87500')
+        self._find_element(self.POSTAL_CODE).send_keys(postal_code)
 
     def select_country(self):
         self._find_element(self.COUNTRY).click()
@@ -134,9 +127,9 @@ class CreateAccountPage(BasePage):
         self._find_element(self.MOBILE_PHONE).click()
         self._find_element(self.MOBILE_PHONE).send_keys(mobile_phone)
 
-    def fill_assign_address(self):
+    def fill_assign_address(self, assign_address):
         self._find_element(self.ASSIGN_ADDRESS).click()
-        self._find_element(self.ASSIGN_ADDRESS).send_keys('fill_assign_address')
+        self._find_element(self.ASSIGN_ADDRESS).send_keys(assign_address)
 
     def click_register_button(self):
         self._find_element(self.REGISTER_BUTTON).click()

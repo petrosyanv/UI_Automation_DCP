@@ -12,6 +12,3 @@ def phone_number_generator(length=8):
     phone_number = ''.join([random.choice(number) for _ in range(length)])
     return '80' + phone_number
 
-    # def text_generator(self):
-    #     text = string.ascii_lowercase
-    #     return text
