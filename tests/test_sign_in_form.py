@@ -3,15 +3,12 @@ import time
 
 from client.web_client import WebClient
 from config import Configurator
-from common.utility import phone_number_generator
-from common.utility import email_generator
+from common.utility import phone_number_generator, email_generator
+
 
 class TestSignInForm:
     config = Configurator()
     client = WebClient()
-    mail = email_generator()
-    phone = phone_number_generator()
-
 
     @classmethod
     def setup_class(cls):
@@ -24,7 +21,7 @@ class TestSignInForm:
         self.client.home_page.click_on_login()
 
     def test_login_created(self):
-        self.client.login_page.fill_create_email_field(self.mail)
+        self.client.login_page.fill_create_email_field(email_generator())
         self.client.login_page.click_create_an_account()
         self.client.create_page.click_gender_male_mr()
         self.client.create_page.click_gender_male_mrs()
@@ -49,8 +46,8 @@ class TestSignInForm:
         self.client.create_page.select_country()
         self.client.create_page.fill_country()
         self.client.create_page.fill_additional_info()
-        self.client.create_page.fill_home_phone(self.phone)
-        self.client.create_page.fill_mobile_phone(self.phone)
+        self.client.create_page.fill_home_phone(phone_number_generator())
+        self.client.create_page.fill_mobile_phone(phone_number_generator())
         self.client.create_page.fill_assign_address('AssignAddress')
         self.client.create_page.click_register_button()
 
