@@ -22,7 +22,7 @@ class HomePage(BasePage):
         self.driver.set_window_size(1920, 1080)
 
     def click_on_login(self):
-        self._find_element(self.MY_PROFILE).click()
+        self._find_element(self.LOGIN_BUTTON).click()
 
     def hover_over_women_button(self):
         woman = self._find_element(self.WOMEN_BUTTON)
