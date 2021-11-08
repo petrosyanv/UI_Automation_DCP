@@ -25,7 +25,7 @@ class TestSignInForm:
         self.client.login_page.click_create_an_account()
         self.client.create_page.click_gender_male_mr()
         self.client.create_page.click_gender_male_mrs()
-        self.client.create_page.fill_customer_first_name('Firstame')
+        self.client.create_page.fill_customer_first_name(customer_first_name='Firstame')
         self.client.create_page.fill_customer_last_name('LastName')
         self.client.create_page.fill_password('password')
         self.client.create_page.select_date_of_birth_day()
