@@ -25,9 +25,7 @@ class HomePage(BasePage):
 
     DRESSES_CASUAL_DRESSES = (By.LINK_TEXT, 'Casual Dresses')
     DRESSES_EVENING_DRESSES = (By.LINK_TEXT, 'Evening Dresses')
-   #DRESSES_EVENING_DRESSES = (By.PARTIAL_LINK_TEXT, 'Evening Dresses')
     DRESSES_SUMMER_DRESSES = (By.PARTIAL_LINK_TEXT, 'Summer Dresses')
-
 
     CATEGORIES_WOMEN_BUTTON = (By.XPATH, "//a[contains(@title,'Women')]")
 
@@ -45,7 +43,6 @@ class HomePage(BasePage):
     MY_ACCOUNT_MY_CREDIT_SLIPS_BUTTON = (By.XPATH, "//a[@title='My credit slips']")
     MY_ACCOUNT_MY_ADDRESSES_BUTTON = (By.XPATH, "//a[@title='My addresses']")
     MY_ACCOUNT_MY_PERSONAL_INFO_BUTTON = (By.XPATH, "//a[@title='Manage my personal information']")
-    #MY_ACCOUNT_MY_PERSONAL_SIGN_OUT = (By.XPATH, "//a[contains(@title,'Sign out')]")
     MY_ACCOUNT_MY_PERSONAL_SIGN_OUT = (By.LINK_TEXT, "Sign out")
 
     IS_PAGE_OPENED_LOCATORS = [LOGIN_BUTTON]
