@@ -16,16 +16,18 @@ class HomePage(BasePage):
     DRESSES_BUTTON = (By.XPATH, "(//a[@title='Dresses'][normalize-space()='Dresses'])[2]")
     T_SHIRTS_BUTTON = (By.XPATH, "(//a[@title='T-shirts'][normalize-space()='T-shirts'])[2]")
 
-    CASUAL_DRESSES_BUTTON = (By.LINK_TEXT, "Casual Dresses")
-    EVENING_DRESSES_BUTTON = (By.LINK_TEXT, "Evening Dresses")
-    SUMMER_DRESSES_BUTTON = (By.LINK_TEXT, "Summer Dresses")
+    WOMEN_CASUAL_DRESSES_BUTTON = (By.LINK_TEXT, "Casual Dresses")
+    WOMEN_EVENING_DRESSES_BUTTON = (By.LINK_TEXT, "Evening Dresses")
+    WOMEN_SUMMER_DRESSES_BUTTON = (By.LINK_TEXT, "Summer Dresses")
 
-    TOPS_T_SHIRTS = (By.LINK_TEXT, 'T-shirts')
-    TOPS_BLOUSES = (By.LINK_TEXT, 'Blouses')
+    WOMEN_TOPS_T_SHIRTS = (By.LINK_TEXT, 'T-shirts')
+    WOMEN_TOPS_BLOUSES = (By.LINK_TEXT, 'Blouses')
 
     DRESSES_CASUAL_DRESSES = (By.LINK_TEXT, 'Casual Dresses')
     DRESSES_EVENING_DRESSES = (By.LINK_TEXT, 'Evening Dresses')
-    DRESSES_SUMMER_DRESSES = (By.LINK_TEXT, 'Summer Dresses')
+   #DRESSES_EVENING_DRESSES = (By.PARTIAL_LINK_TEXT, 'Evening Dresses')
+    DRESSES_SUMMER_DRESSES = (By.PARTIAL_LINK_TEXT, 'Summer Dresses')
+
 
     CATEGORIES_WOMEN_BUTTON = (By.XPATH, "//a[contains(@title,'Women')]")
 
@@ -43,7 +45,8 @@ class HomePage(BasePage):
     MY_ACCOUNT_MY_CREDIT_SLIPS_BUTTON = (By.XPATH, "//a[@title='My credit slips']")
     MY_ACCOUNT_MY_ADDRESSES_BUTTON = (By.XPATH, "//a[@title='My addresses']")
     MY_ACCOUNT_MY_PERSONAL_INFO_BUTTON = (By.XPATH, "//a[@title='Manage my personal information']")
-    MY_ACCOUNT_MY_PERSONAL_SIGN_OUT = (By.XPATH, "//a[@title='Manage my personal information']")
+    #MY_ACCOUNT_MY_PERSONAL_SIGN_OUT = (By.XPATH, "//a[contains(@title,'Sign out')]")
+    MY_ACCOUNT_MY_PERSONAL_SIGN_OUT = (By.LINK_TEXT, "Sign out")
 
     IS_PAGE_OPENED_LOCATORS = [LOGIN_BUTTON]
 
@@ -63,79 +66,79 @@ class HomePage(BasePage):
         ActionChains(self.driver).move_to_element(dresses).perform()
 
     def get_value_button_woman(self):
-        return self._find_element(self.WOMEN_BUTTON).get_attribute('value')
+        return self._find_element(self.WOMEN_BUTTON).get_attribute('title')
 
     def get_value_button_woman_tops_t_shirts(self):
-        return self._find_element(self.TOPS_T_SHIRTS).get_attribute('value')
+        return self._find_element(self.WOMEN_TOPS_T_SHIRTS).get_attribute('title')
 
     def get_value_button_woman_tops_blouses(self):
-        return self._find_element(self.TOPS_BLOUSES).get_attribute('value')
+        return self._find_element(self.WOMEN_TOPS_BLOUSES).get_attribute('title')
 
     def get_value_button_woman_dresses_casual_dresses(self):
-        return self._find_element(self.DRESSES_CASUAL_DRESSES).get_attribute('value')
+        return self._find_element(self.WOMEN_CASUAL_DRESSES_BUTTON).get_attribute('title')
 
     def get_value_button_woman_dresses_evening_dresses(self):
-        return self._find_element(self.DRESSES_EVENING_DRESSES).get_attribute('value')
+        return self._find_element(self.WOMEN_EVENING_DRESSES_BUTTON).get_attribute('title')
 
     def get_value_button_woman_dresses_summer_dresses(self):
-        return self._find_element(self.DRESSES_SUMMER_DRESSES).get_attribute('value')
+        return self._find_element(self.WOMEN_SUMMER_DRESSES_BUTTON).get_attribute('title')
 
     def get_value_button_dresses(self):
-        return self._find_element(self.DRESSES_BUTTON).get_attribute('value')
+        return self._find_element(self.DRESSES_BUTTON).get_attribute('title')
 
     def get_value_button_dresses_casual_dresses(self):
-        return self._find_element(self.DRESSES_BUTTON).get_attribute('value')
+        return self._find_element(self.DRESSES_CASUAL_DRESSES).get_attribute('title')
 
     def get_value_button_dresses_evening_dresses(self):
-        return self._find_element(self.DRESSES_BUTTON).get_attribute('value')
+        return self._find_element(self.DRESSES_EVENING_DRESSES).get_attribute('title')
 
     def get_value_button_dresses_summer_dresses(self):
-        return self._find_element(self.DRESSES_BUTTON).get_attribute('value')
+        return self._find_element(self.DRESSES_SUMMER_DRESSES).get_attribute('title')
 
     def get_value_button_t_shirts(self):
-        return self._find_element(self.T_SHIRTS_BUTTON).get_attribute('value')
+        return self._find_element(self.T_SHIRTS_BUTTON).get_attribute('title')
 
     def get_value_categories_women(self):
-        return self._find_element(self.CATEGORIES_WOMEN_BUTTON).get_attribute('value')
+        return self._find_element(self.CATEGORIES_WOMEN_BUTTON).get_attribute('title')
 
     def get_value_information_button_specials(self):
-        return self._find_element(self.INFORMATION_SPECIALS_BUTTON).get_attribute('value')
+        return self._find_element(self.INFORMATION_SPECIALS_BUTTON).get_attribute('title')
 
     def get_value_information_button_new_products(self):
-        return self._find_element(self.INFORMATION_NEW_PRODUCTS_BUTTON).get_attribute('value')
+        return self._find_element(self.INFORMATION_NEW_PRODUCTS_BUTTON).get_attribute('title')
 
     def get_value_information_button_best_sellers(self):
-        return self._find_element(self.INFORMATION_BEST_SELLERS_BUTTON).get_attribute('value')
+        return self._find_element(self.INFORMATION_BEST_SELLERS_BUTTON).get_attribute('title')
 
     def get_value_information_button_our_stores(self):
-        return self._find_element(self.INFORMATION_OUR_STORES_BUTTON).get_attribute('value')
+        return self._find_element(self.INFORMATION_OUR_STORES_BUTTON).get_attribute('title')
 
     def get_value_information_button_contact_us(self):
-        return self._find_element(self.INFORMATION_CONTACT_US_BUTTON).get_attribute('value')
+        return self._find_element(self.INFORMATION_CONTACT_US_BUTTON).get_attribute('title')
 
     def get_value_information_button_terms_and_conditions(self):
-        return self._find_element(self.INFORMATION_TERMS_AND_CONDITIONS_OF_USE_BUTTON).get_attribute('value')
+        return self._find_element(self.INFORMATION_TERMS_AND_CONDITIONS_OF_USE_BUTTON).get_attribute('title')
 
     def get_value_information_button_about_us(self):
-        return self._find_element(self.INFORMATION_ABOUT_US_BUTTON).get_attribute('value')
+        return self._find_element(self.INFORMATION_ABOUT_US_BUTTON).get_attribute('title')
 
     def get_value_information_button_site_map(self):
-        return self._find_element(self.INFORMATION_SITEMAP_BUTTON).get_attribute('value')
+        return self._find_element(self.INFORMATION_SITEMAP_BUTTON).get_attribute('title')
 
     def get_value_button_my_account(self):
-        return self._find_element(self.MY_ACCOUNT_BUTTON).get_attribute('value')
+        return self._find_element(self.MY_ACCOUNT_BUTTON).get_attribute('title')
 
     def get_value_my_account_button_my_orders(self):
-        return self._find_element(self.MY_ACCOUNT_MY_ORDERS_BUTTON).get_attribute('value')
+        return self._find_element(self.MY_ACCOUNT_MY_ORDERS_BUTTON).get_attribute('title')
 
     def get_value_my_account_button_my_credit_slips(self):
-        return self._find_element(self.MY_ACCOUNT_MY_CREDIT_SLIPS_BUTTON).get_attribute('value')
+        return self._find_element(self.MY_ACCOUNT_MY_CREDIT_SLIPS_BUTTON).get_attribute('title')
 
     def get_value_my_account_button_my_addresses(self):
-        return self._find_element(self.MY_ACCOUNT_MY_ADDRESSES_BUTTON).get_attribute('value')
+        return self._find_element(self.MY_ACCOUNT_MY_ADDRESSES_BUTTON).get_attribute('title')
 
     def get_value_my_account_button_my_personal_info(self):
-        return self._find_element(self.MY_ACCOUNT_MY_PERSONAL_INFO_BUTTON).get_attribute('value')
+        return self._find_element(self.MY_ACCOUNT_MY_PERSONAL_INFO_BUTTON).get_attribute('title')
 
     def get_value_my_account_button_sign_out(self):
-        return self._find_element(self.MY_ACCOUNT_MY_PERSONAL_SIGN_OUT).get_attribute('value')
+        return self._find_element(self.MY_ACCOUNT_MY_PERSONAL_SIGN_OUT).get_attribute('title')
